@@ -1,50 +1,136 @@
-# Welcome to your Expo app 👋
+# 📱 Mini App de Navegación con Expo Router y NativeWind
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este proyecto corresponde al **3er proyecto del curso _React Native con Expo_ de Fernando Herrera**.
 
-## Get started
+En esta sección se construyó una mini aplicación enfocada en **navegación por rutas**, **estilos modernos con NativeWind** y una **estructura escalable**, muy similar a la experiencia de desarrollo con **Next.js + Tailwind CSS**, pero aplicada al mundo de **apps nativas**.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 🎯 Objetivo del proyecto
 
-2. Start the app
+El objetivo principal de este proyecto es dominar los fundamentos esenciales para cualquier aplicación móvil moderna:
 
-   ```bash
-   npx expo start
-   ```
+- Navegación entre pantallas
+- Uso de layouts
+- Paso de parámetros entre rutas
+- Estilos globales y reutilizables
+- Temas y fuentes personalizadas
+- Organización del proyecto basada en el file system
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🧭 Tecnologías utilizadas
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **React Native**
+- **Expo**
+- **Expo Router**
+- **NativeWind (Tailwind CSS para React Native)**
+- **TypeScript**
+- **React Native Safe Area Context**
+- **Fuentes personalizadas (Work Sans)**
 
-## Get a fresh project
+---
 
-When you're ready, run:
+## 🗂️ Estructura del proyecto
 
+```txt
+app/
+├── layout.tsx                # Layout raíz (fuentes, splash, global.css)
+├── index.tsx                 # Redirección inicial
+├── (stack)/
+│   ├── _layout.tsx           # Stack Navigation
+│   ├── home/
+│   │   └── index.tsx         # Pantalla Home
+│   ├── products/
+│   │   ├── index.tsx         # Listado de productos
+│   │   └── [id].tsx          # Detalle dinámico de producto
+│   ├── profile/
+│   │   └── index.tsx         # Perfil
+│   └── settings/
+│       └── index.tsx         # Ajustes
+│
+components/
+├── shared/
+│   └── CustomButton.tsx      # Botón reutilizable con NativeWind
+│
+constants/
+├── theme.ts                  # Colores y tema
+│
+data/
+├── products.store.ts         # Datos mock de productos
+│
+styles/
+├── global.styles.ts          # Estilos globales (no NativeWind)
+│
+assets/
+├── fonts/
+│   └── WorkSans-*.ttf        # Fuentes personalizadas
+│
+global.css                    # Tailwind / NativeWind
+tailwind.config.js
+metro.config.js
+babel.config.js
+
+
+# 🧩 Funcionalidades principales
+
+## 🧭 Navegación con Expo Router
+- Navegación basada en file system
+- Stack Navigation tipo “baraja de cartas”
+- Rutas dinámicas (`[id].tsx`)
+- Redirecciones automáticas
+- Paso de parámetros entre pantallas
+
+## 🎨 Estilos con NativeWind
+- Uso de `className` como en Tailwind CSS
+- Temas personalizados (primary, secondary, tertiary)
+- Fuentes personalizadas integradas en Tailwind
+- Botones reutilizables y variantes (contained, text-only)
+
+## 🧱 Layouts
+- Layout raíz para:
+  - Splash Screen
+  - Carga de fuentes
+  - Estilos globales
+- Layout específico para Stack Navigation
+
+# 📦 Instalación y ejecución
+
+## Instalar dependencias:
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Ejecutar la app
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Ejecutar en Android
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- Emulador de Android Studio
+- Dispositivo físico con Expo Go
 
-## Join the community
+## 🧠 Aprendizajes clave
 
-Join our community of developers creating universal apps.
+- Expo Router funciona de forma muy similar a Next.js
+- NativeWind ofrece una experiencia casi idéntica a Tailwind en web
+- Separar layouts mejora la escalabilidad
+- La navegación es uno de los pilares más importantes en apps móviles
+- Una buena estructura de carpetas facilita el mantenimiento del proyecto
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 🚀 Conclusión
+
+Este proyecto marca un punto clave en el curso, ya que sienta las bases para:
+
+- Aplicaciones nativas reales
+- Proyectos escalables
+- Uso profesional de navegación y estilos
+- Mayor confianza para desarrollar apps móviles en entornos laborales
+
+---
+
+**👨‍💻 Curso:** React Native con Expo  
+**🎓 Instructor:** Fernando Herrera  
+**📌 Proyecto:** 3 / Curso

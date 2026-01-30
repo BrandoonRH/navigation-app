@@ -1,33 +1,49 @@
+// Redirect nos permite redirigir automáticamente a otra ruta
+import { Redirect } from 'expo-router'
 
-import { Text, View } from 'react-native'
-
-
+/**
+ * App
+ * ---
+ * Pantalla raíz de la app (/)
+ * No muestra UI, solo redirige
+ */
 const App = () => {
-  return (
 
-    <View className="mt-6 mx-2.5">
-      <Text className="text-5xl" style={{ fontFamily: 'WorkSans-Black' }}>
-        Hola Mundo
-      </Text>
-
-      <Text className="text-4xl text-primary font-work-black">
-        Hola Mundo
-      </Text>
-
-      <Text className="text-3xl text-secondary font-work-medium">
-        Hola Mundo
-      </Text>
-
-      <Text className="text-2xl text-secondary-100 font-work-light">
-        Hola Mundo
-      </Text>
-
-      <Text className="text-xl text-tertiary">Hola Mundo</Text>
-
-
-    </View>
-
-  )
+  /**
+   * Redirigimos automáticamente al stack principal
+   * 👉 (stack)/home
+   *
+   * Esto es similar a:
+   * - Next.js: redirect('/home')
+   * - React Router: <Navigate />
+   */
+  return <Redirect href="./(stack)/home"/>
 }
 
 export default App
+
+
+/**
+ * ============================
+ * 🧠 CONCEPTOS CLAVE
+ * ============================
+ *
+ * ✅ index.tsx = ruta raíz (/)
+ * - Se ejecuta al abrir la app
+ *
+ * ✅ Redirect (Expo Router)
+ * - Navegación declarativa
+ * - No hay flashes de pantalla
+ *
+ * ✅ Grupos de rutas (stack)
+ * - (stack) NO aparece en la URL
+ * - Solo organiza navegación y layouts
+ *
+ * ✅ Flujo limpio de arranque
+ * - SplashScreen → Fonts → Redirect → Home
+ *
+ * 📱 Resultado:
+ * - Inicio claro
+ * - Código simple
+ * - Arquitectura escalable
+ */
