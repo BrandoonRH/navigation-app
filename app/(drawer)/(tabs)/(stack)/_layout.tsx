@@ -1,6 +1,8 @@
 // Stack es el navegador tipo "baraja de cartas" 📚
 // Cada pantalla se apila sobre la anterior
-import { Stack } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
+import { DrawerActions } from '@react-navigation/native';
+import { router, Stack, useNavigation } from 'expo-router';
 
 /**
  * StackLayout
@@ -10,6 +12,19 @@ import { Stack } from 'expo-router';
  * dentro de la carpeta (stack)
  */
 const StackLayout = () => {
+
+
+  const navigation = useNavigation();
+
+  const onHeaderLeftClick = (canGoBack: boolean) => {
+    if (canGoBack) {
+      //TODO DA ERROR  ERROR  The action 'POP' with payload {"count":1} was not handled by any navigator. Is there any screen to go back to? This is a development-only warning and won't be shown in production.
+
+      router.back();
+      return;
+    }
+    navigation.dispatch(DrawerActions.toggleDrawer)
+  }
   return (
     <Stack
       /**
@@ -19,7 +34,7 @@ const StackLayout = () => {
        */
       screenOptions={{
         // Si se descomenta, oculta el header en todas las pantallas
-         headerShown: false,
+        /* headerShown: false, */
 
         // Animación por defecto al navegark
         animation: 'slide_from_bottom',
@@ -31,6 +46,7 @@ const StackLayout = () => {
         contentStyle: {
           backgroundColor: 'white',
         },
+        headerLeft: ({ tintColor, canGoBack }) => <Ionicons onPress={() => onHeaderLeftClick(canGoBack as boolean)} name={canGoBack ? 'chevron-back-circle-outline' : 'grid-outline'} className='mr-5' size={20} />
       }}
     >
 

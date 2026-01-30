@@ -6,7 +6,7 @@ const TabsLayout = () => {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'indigo',
-        headerShown: false,
+        /* headerShown: false, */
       }}
     >
       {/* Stack completo como un Tab */}
@@ -14,6 +14,7 @@ const TabsLayout = () => {
         name="(stack)"
         options={{
           title: 'Stack',
+          headerShown: false,
           tabBarIcon: ({ color }) => (
             <Ionicons name="layers-outline" size={28} color={color} />
           ),

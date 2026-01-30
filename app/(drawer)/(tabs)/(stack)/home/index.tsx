@@ -1,14 +1,21 @@
 import CustomButton from '@/components/shared/CustomButton'
-import { Link, router } from 'expo-router'
+import { DrawerActions } from '@react-navigation/native'
+import { Link, router, useNavigation } from 'expo-router'
 import React from 'react'
 import { Text, View } from 'react-native'
 
 // 🏠 Pantalla principal de la app
 const HomeScreen = () => {
+
+    const navigation = useNavigation();
+
+    const onToggleDrawer = () => {
+        navigation.dispatch(DrawerActions.toggleDrawer)
+    }
     return (
         // 🛟 SafeAreaView evita que el contenido choque
         // con notch, status bar o barras del sistema
-            <View>
+            <View className='px-10 mt-5'>
                 {/* 📝 Título principal */}
                 <Text className='text-center text-2xl b-2 text-primary'>
                     HomeScreen
@@ -18,14 +25,14 @@ const HomeScreen = () => {
                 <CustomButton
                     className="mb-2"
                     color="primary"
-                    onPress={() => router.push('/tabs/(stack)/products')}
+                    onPress={() => router.push('/products')}
                 >
                     Productos
                 </CustomButton>
 
                 {/* 👉 Rutas relativas funcionan igual que en Next.js */}
                 <CustomButton
-                    onPress={() => router.push('/tabs/(stack)/profile')}
+                    onPress={() => router.push('/profile')}
                     className="mb-2"
                     color="secondary"
                 >
@@ -33,7 +40,7 @@ const HomeScreen = () => {
                 </CustomButton>
 
                 <CustomButton
-                    onPress={() => router.push('/tabs/(stack)/settings')}
+                    onPress={() => router.push('/settings')}
                     className="mb-2"
                     color="tertiary"
                 >
@@ -42,7 +49,7 @@ const HomeScreen = () => {
 
                 {/* 🔗 Navegación declarativa usando <Link /> */}
                 {/* asChild permite que el botón maneje el press */}
-                <Link href="/tabs/(stack)/products" asChild>
+                <Link href="/products" asChild>
                     <CustomButton
                         variant="text-only"
                         className="mb-10"
@@ -51,6 +58,9 @@ const HomeScreen = () => {
                         Productos
                     </CustomButton>
                 </Link>
+
+
+                <CustomButton onPress={onToggleDrawer}>Abrir Menu</CustomButton>
 
                 {/* 
                   Alternativa simple usando Link directo
