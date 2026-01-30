@@ -19,9 +19,9 @@ const StackLayout = () => {
        */
       screenOptions={{
         // Si se descomenta, oculta el header en todas las pantallas
-        // headerShown: false,
+         headerShown: false,
 
-        // Animación por defecto al navegar
+        // Animación por defecto al navegark
         animation: 'slide_from_bottom',
 
         // Elimina la sombra del header (estilo más limpio)

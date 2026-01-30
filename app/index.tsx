@@ -17,7 +17,7 @@ const App = () => {
    * - Next.js: redirect('/home')
    * - React Router: <Navigate />
    */
-  return <Redirect href="./tabs"/>
+  return <Redirect href="./drawer"/>
 }
 
 export default App

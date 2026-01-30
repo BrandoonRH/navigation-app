@@ -18,14 +18,14 @@ const HomeScreen = () => {
                 <CustomButton
                     className="mb-2"
                     color="primary"
-                    onPress={() => router.push('/products')}
+                    onPress={() => router.push('/tabs/(stack)/products')}
                 >
                     Productos
                 </CustomButton>
 
                 {/* 👉 Rutas relativas funcionan igual que en Next.js */}
                 <CustomButton
-                    onPress={() => router.push('./profile')}
+                    onPress={() => router.push('/tabs/(stack)/profile')}
                     className="mb-2"
                     color="secondary"
                 >
@@ -33,7 +33,7 @@ const HomeScreen = () => {
                 </CustomButton>
 
                 <CustomButton
-                    onPress={() => router.push('./settings')}
+                    onPress={() => router.push('/tabs/(stack)/settings')}
                     className="mb-2"
                     color="tertiary"
                 >
@@ -42,7 +42,7 @@ const HomeScreen = () => {
 
                 {/* 🔗 Navegación declarativa usando <Link /> */}
                 {/* asChild permite que el botón maneje el press */}
-                <Link href="/products" asChild>
+                <Link href="/tabs/(stack)/products" asChild>
                     <CustomButton
                         variant="text-only"
                         className="mb-10"

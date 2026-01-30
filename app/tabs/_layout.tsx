@@ -3,19 +3,42 @@ import { Tabs } from 'expo-router'
 
 const TabsLayout = () => {
   return (
-     <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: 'indigo',
+        headerShown: false,
+      }}
+    >
+      {/* Stack completo como un Tab */}
       <Tabs.Screen
-        name="home/index.tsx"
+        name="(stack)"
         options={{
-          title: 'Home Screen',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="home-outline" color={color} />,
+          title: 'Stack',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="layers-outline" size={28} color={color} />
+          ),
         }}
       />
+
+      {/* Home directo */}
       <Tabs.Screen
-        name="favorites/index.tsx"
+        name="home/index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="home-outline" size={28} color={color} />
+          ),
+        }}
+      />
+
+      {/* Favoritos */}
+      <Tabs.Screen
+        name="favorites/index"
         options={{
           title: 'Favoritos',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="heart-circle" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="heart-outline" size={28} color={color} />
+          ),
         }}
       />
     </Tabs>
